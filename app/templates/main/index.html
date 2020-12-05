@@ -1,0 +1,19 @@
+{% extends 'common/base.html' %}
+
+{% block title %}首页{% endblock %}
+
+{% block page_content %}
+    {# 巨幕 #}
+    <div class="jumbotron">
+    {% if current_user.username %}
+        <h1 align="center">Hello, {{ current_user.username }}!</h1>
+        <p align="center">在线聊天室</p>
+        <p align="center"><a class="btn btn-primary btn-lg" href="{{ url_for('chat.index') }}" role="button">进入</a></p>
+    {% else %}
+        <h1 align="center">Hello, 请登录!</h1>
+        <p align="center">在线聊天室</p>
+        <p align="center"><a class="btn btn-primary btn-lg" href="{{ url_for('user.login') }}" role="button">登陆</a></p>
+    {% endif %}
+    </div>
+{% endblock %}
+
